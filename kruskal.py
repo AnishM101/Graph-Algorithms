@@ -45,7 +45,7 @@ if st.button("Add edge"):
     st.session_state.graph.add_edge(u, v, weight = w)
 
 fig, ax = plt.subplots()
-graph_position = nx.spring_layout(st.session_state.graph)
+graph_position = nx.circular_layout(st.session_state.graph)
 edge_weights = nx.get_edge_attributes(st.session_state.graph, "weight")
 nx.draw(st.session_state.graph, graph_position, with_labels = True, ax = ax)
 nx.draw_networkx_edge_labels(st.session_state.graph, graph_position, edge_labels = edge_weights, ax = ax)
@@ -81,7 +81,7 @@ if st.button("Run Kruskal's Algorithm"):
         unsafe_allow_html = True
     )
     fig_two, ax_two = plt.subplots()
-    mcst_position = nx.spring_layout(st.session_state.mcst)
+    mcst_position = nx.circular_layout(st.session_state.mcst)
     mcst_edge_weights = nx.get_edge_attributes(st.session_state.mcst, "weight")
     nx.draw(st.session_state.mcst, mcst_position, with_labels = True, ax = ax_two)
     nx.draw_networkx_edge_labels(st.session_state.mcst, mcst_position, edge_labels = mcst_edge_weights, ax = ax_two)

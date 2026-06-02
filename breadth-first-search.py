@@ -51,7 +51,7 @@ if st.button("Add edge"):
     st.session_state.adj_list[v].add(u)
 
 fig, ax = plt.subplots()
-graph_position = nx.spring_layout(st.session_state.graph)
+graph_position = nx.circular_layout(st.session_state.graph)
 nx.draw(st.session_state.graph, graph_position, with_labels = True, ax = ax)
 st.pyplot(fig)
 
@@ -94,6 +94,6 @@ if st.button("Run Breadth First Search"):
         unsafe_allow_html = True
     )
     fig_two, ax_two = plt.subplots()
-    tree_position = nx.spring_layout(st.session_state.bfs_tree)
+    tree_position = nx.circular_layout(st.session_state.bfs_tree)
     nx.draw(st.session_state.bfs_tree, tree_position, with_labels = True, ax = ax_two)
     st.pyplot(fig_two)
